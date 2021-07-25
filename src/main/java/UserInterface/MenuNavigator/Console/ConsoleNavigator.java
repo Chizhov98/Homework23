@@ -6,7 +6,9 @@ import Entity.Auto;
 import UserInterface.MenuNavigator.MenuNavigator;
 import UserInterface.menu.Console.RussianConsoleMenu;
 import UserInterface.menu.Menu;
+import org.hibernate.type.LocalDateType;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -110,6 +112,7 @@ public class ConsoleNavigator implements MenuNavigator {
 
     @Override
     public void updateMenu() {
+        LocalDate date;
         menu.enterId();
         int id = menuScanner();
         boolean stop = true;
@@ -127,11 +130,11 @@ public class ConsoleNavigator implements MenuNavigator {
                     break;
                 case 3:
                     menu.enterYearOfManufacture();
-                    auto.setYearOfManufacture(menuScanner());
+                    auto.setYearOfManufacture(dateConverter(IN.nextLine()));
                     break;
                 case 4:
                     menu.enterLastSellingDate();
-                    auto.setLastSellDate(IN.nextLine());
+                    auto.setLastSellDate(dateConverter(IN.nextLine()));
                     break;
                 case 5:
                     menu.enterFuelVolume();
@@ -147,6 +150,16 @@ public class ConsoleNavigator implements MenuNavigator {
         mainMenu();
     }
 
+    private LocalDate dateConverter(String str) {
+        String[] strArr = str.trim().split("/");
+        int[] arr = new int[3];
+        for (int i = 0; i < arr.length ; i++) {
+            arr[i] = Integer.valueOf(strArr[i]);
+        }
+
+        return LocalDate.of(arr[2],arr[1],arr[0]);
+    }
+
     @Override
     public void createMenu() {
         Auto auto = new Auto();
@@ -155,9 +168,9 @@ public class ConsoleNavigator implements MenuNavigator {
         menu.enterPrise();
         auto.setPrice(menuScanner());
         menu.enterYearOfManufacture();
-        auto.setYearOfManufacture(menuScanner());
+        auto.setYearOfManufacture(dateConverter(IN.nextLine()));
         menu.enterLastSellingDate();
-        auto.setLastSellDate(IN.nextLine());
+        auto.setLastSellDate(dateConverter(IN.nextLine()));
         menu.enterFuelVolume();
         auto.setFuelVolume(IN.nextByte());
 
