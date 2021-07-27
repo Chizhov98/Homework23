@@ -34,10 +34,10 @@ public class Auto {
     @Column(name = "sell_date")
     private LocalDate lastSellDate;
 
-    @Column(name = "gear type")
+    @Column(name = "gear_type")
     private GearType typeOfGear;
 
-    @Column(name = "fuel volume")
+    @Column(name = "fuel_volume")
     private double fuelVolume;
 
     public Auto(String title, int price, LocalDate yearOfManufacture, LocalDate lastSellDate, GearType typeOfGear, double fuelVolume) {

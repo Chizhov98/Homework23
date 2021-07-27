@@ -9,6 +9,7 @@ import UserInterface.menu.Menu;
 import org.hibernate.type.LocalDateType;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -156,7 +157,7 @@ public class ConsoleNavigator implements MenuNavigator {
         for (int i = 0; i < arr.length ; i++) {
             arr[i] = Integer.valueOf(strArr[i]);
         }
-
+        System.out.println(Arrays.toString(arr));
         return LocalDate.of(arr[2],arr[1],arr[0]);
     }
 

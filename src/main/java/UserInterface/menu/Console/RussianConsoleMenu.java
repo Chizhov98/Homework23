@@ -71,11 +71,11 @@ public class RussianConsoleMenu implements Menu {
     }
 
     public void enterYearOfManufacture() {
-        System.out.println("Введите год выпуска автомобиля");
+        System.out.println("Введите дату выпуска автомобиля(в формате дд/мм/гг)");
     }
 
     public void enterLastSellingDate() {
-        System.out.println("Введитиете дату последней продажи авто");
+        System.out.println("Введитиете дату последней продажи авто(в формате дд/мм/гг)");
     }
 
     public void enterFuelVolume() {
