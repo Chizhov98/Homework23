@@ -12,8 +12,8 @@ for names in $filename; do
    shortname=$(basename "$names" .java)
    echo ${#shortname}
  if [[ "${#shortname}" -ge "$count" ]]; then
-    echo $(basename "$names") >> dir1/long_names.txt
+    echo $(basename "$names") >> long/long_names.txt
  else
-    echo $(basename "$names") >> dir2/short_names.txt
+    echo $(basename "$names") >> short/short_names.txt
  fi
 done
